@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>设计说明 · 云探校</title>
+<meta name="description" content="云探校线上展厅的设计说明：选题定位、五心落点、交互与技术实现、素材来源与文件结构。">
+<meta name="theme-color" content="#FAF8F3">
+<link rel="icon" href="assets/img/emblem.png">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="doc">
+
+<div class="doc__bar">
+  <a class="doc__back" href="index.html">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M13 8H3M7 4L3 8l4 4"/></svg>
+    返回展厅
+  </a>
+  <span class="doc__tag">DESIGN NOTE · 2022 级毕业设计</span>
+</div>
+
+<header class="doc__hd">
+  <p class="kicker">Design Note / 设计说明</p>
+  <h1>一个不用到校的开放日，<br>是怎么被做出来的</h1>
+  <p>这份说明写给答辩老师，也写给下一位接手的人：为什么做、每一段在讲什么、五心落在哪、技术怎么实现、素材从哪来、文件怎么放。</p>
+  <div class="doc__meta">
+    <span>选题 · 云探校线上展厅</span>
+    <span>成果形式 · 网页主件 + 三样配套</span>
+    <span>技术 · 纯前端 / 零依赖</span>
+    <span>更新 · 2026.11</span>
+  </div>
+</header>
+
+<div class="doc__wrap">
+  <aside class="doc__toc">
+    <p>CONTENTS</p>
+    <a href="#s1">01 选题与定位</a>
+    <a href="#s2">02 五心落在哪</a>
+    <a href="#s3">03 结构与交互</a>
+    <a href="#s4">04 技术实现</a>
+    <a href="#s5">05 素材与来源</a>
+    <a href="#s6">06 文件与交付</a>
+    <a href="#s7">07 可拓展</a>
+  </aside>
+
+  <div class="doc__body">
+
+    <section class="doc__sec" id="s1">
+      <h2><i>01</i>选题与定位</h2>
+      <p>招生季的痛点很具体：家长在外地、在上班、在带孩子，来一趟学校要半天；招生老师手里只有一张宣传单和几张照片，说不出"这个专业到底在哪个楼上课"。</p>
+      <p>这个作品把开放日搬到线上——点开链接就能看校园、看专业、看作品。它不是宣传册的电子版，而是一条可以自己走的路线：从校门进去，走过八站，最后停在招生信息上。</p>
+      <ul>
+        <li><b>服务对象</b>：初三学生与家长、招生老师、来校参观的初中学校</li>
+        <li><b>使用场景</b>：招生宣传推文里的链接、开放日预约后的提前踩点、外地家长随时查看</li>
+        <li><b>与"为学校设计数字形象"的关系</b>：这是学校数字形象里"可进入"的那一层——官网告诉你学校是什么，这里让你走进去</li>
+        <li><b>边界</b>：不替代官网的信息发布，不做报名与缴费，预约只做展示与引导</li>
+      </ul>
+    </section>
+
+    <section class="doc__sec" id="s2">
+      <h2><i>02</i>五心落在哪</h2>
+      <p>五心不单独设一个板块去讲，那样像贴标签。做法是把它们放进具体的展项里：每一站先讲这里在发生什么，末尾用一行小字点一句"由此 · 红心"。看的人先看到事实，再看到主题。</p>
+      <table class="doc__tb">
+        <thead>
+          <tr><th>五心</th><th>落在哪一站</th><th>具体讲什么</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>红心 · 家国与地方</td>
+            <td>01 校门、04 智造车间</td>
+            <td>二十八个中高职专业长在港城的产业链上：化工、机电、纺织、商贸。学校牵头江苏扬子江职业教育集团（42 所职校、45 家骨干企业），现代学徒制试点 7 项，学生毕业进的是隔壁的厂。</td>
+          </tr>
+          <tr>
+            <td>仁心 · 服务与照顾</td>
+            <td>07 食堂与宿舍</td>
+            <td>食堂、宿舍、洗衣、医务、快递一条线写清楚。家长最想知道的不是"条件好"，而是"我孩子的一天怎么被照顾顺"。</td>
+          </tr>
+          <tr>
+            <td>恒心 · 坚持与成长</td>
+            <td>02 图文中心、06 运动场</td>
+            <td>晚自习的灯；连续二十三届张家港市技能竞赛金杯、连续十年省技能大赛先进学校。金杯背后是傍晚的跑道和每天多练的那一小时。</td>
+          </tr>
+          <tr>
+            <td>匠心 · 精品与手艺</td>
+            <td>03 实训组团、08 展厅</td>
+            <td>一人一机、件件过检验；10 个校内实践基地，数控技术应用为国家级；全国技能大赛 78 金 26 银 5 铜，展厅里摆的是学生自己做的服装、模型、界面。</td>
+          </tr>
+          <tr>
+            <td>创心 · 数字与体验</td>
+            <td>05 云端机房、整页交互</td>
+            <td>信息工程系的机房；而这个页面本身就出自这排机器——卷轴拉开、八站滚动、示意图联动，数字技术在这里既是内容也是展品。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="doc__sec" id="s3">
+      <h2><i>03</i>结构与交互</h2>
+      <p>整页是一条向下的路线，六段各自解决一个问题，不做并列的卡片堆。</p>
+      <table class="doc__tb">
+        <thead>
+          <tr><th>段落</th><th>解决什么</th><th>关键交互</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>首屏</td><td>三秒说清这是什么</td><td>竖排印章、细红压线、向下提示</td></tr>
+          <tr><td>01 校园长卷</td><td>先把场域铺开</td><td>两根红漆轴头，随滚动从中间向两侧拉开，露出 1920×400 实景长图</td></tr>
+          <tr><td>02 数字</td><td>用可核对的事实建立信任</td><td>进入视口后数字从 0 补间到实际值</td></tr>
+          <tr><td>03 八站导览</td><td>让人"走"一遍校园</td><td>760vh 长滚动区，滚过一站换一站；右侧示意图高亮对应楼，定位点跟随；底部八段节拍可点击直达</td></tr>
+          <tr><td>04 系部与时间线</td><td>看专业、看四十年的来路</td><td>五个系部手风琴，一次只开一个；时间线节点逐个亮起</td></tr>
+          <tr><td>05 招生</td><td>把看的人变成来的人</td><td>五步流程、两场开放日时段表、地址与二维码</td></tr>
+        </tbody>
+      </table>
+      <p>导航只留五项，页脚补上设计说明与配套物料。手机上导航收进抽屉，八站改为纵向排布，示意图缩到段落顶部，长卷仍可拉开。</p>
+    </section>
+
+    <section class="doc__sec" id="s4">
+      <h2><i>04</i>技术实现</h2>
+      <p>一套 HTML、一份 CSS、一份 JS，没有框架、没有构建、没有外链字体和图标库。把文件夹拷到任何地方双击就能打开，也可以直接放到 GitHub Pages 上。</p>
+      <ul>
+        <li><b>卷轴拉开</b>：父级 sticky 占住视口，滚动进度映射到卷面宽度（5% → 100%），用 easeOut 曲线让起手快、收尾稳；卷面用 clip-path 只裁左右，轴头允许出界</li>
+        <li><b>八站切换</b>：<span style="font-family:var(--mono);font-size:12px">p = -rect.top / (height - innerHeight)</span>，取整得到站点索引，给对应站、示意图块、节拍条加 <span style="font-family:var(--mono);font-size:12px">.is-on</span></li>
+        <li><b>示意图联动</b>：SVG 每块写 <span style="font-family:var(--mono);font-size:12px">data-block</span>，JS 按名字找块，把定位点移到块的右上角，标签同时转白</li>
+        <li><b>数字补间</b>：IntersectionObserver 只触发一次，rAF 里按 easeOutCubic 跑 1300ms</li>
+        <li><b>优雅降级</b>：系统开启"减少动态效果"时，所有过渡与视差关闭，内容直接呈现</li>
+        <li><b>可访问性</b>：语义化标签、<span style="font-family:var(--mono);font-size:12px">aria-expanded</span>、键盘可聚焦、正文对比度按 AA 校对</li>
+      </ul>
+      <h3>文件清单</h3>
+      <div class="doc__code">源码/
+├─ index.html          主件：线上展厅（单页）
+├─ 设计说明.html        本页
+└─ assets/
+   ├─ css/style.css     全部样式（含响应式三档断点）
+   ├─ js/main.js        滚动叙事、数字补间、手风琴、抽屉
+   └─ img/              校徽、实景长图、新闻缩略图、二维码</div>
+    </section>
+
+    <section class="doc__sec" id="s5">
+      <h2><i>05</i>素材与来源</h2>
+      <p>页面里的图片全部来自学校官网公开内容，不做二次加工，仅用于校内教学与招生演示。图片均放在 <span style="font-family:var(--mono);font-size:12px">素材/</span> 目录下并附清单，方便核对来源与尺寸。</p>
+      <table class="doc__tb">
+        <thead>
+          <tr><th>文件</th><th>尺寸</th><th>内容</th><th>来源</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>campus-gate.jpg</td><td>1920 × 400</td><td>南门正面鸟瞰（长卷用图）</td><td>官网首页大图</td></tr>
+          <tr><td>campus-aerial.jpg</td><td>1920 × 400</td><td>校园东侧鸟瞰</td><td>官网首页大图</td></tr>
+          <tr><td>emblem.png</td><td>345 × 346</td><td>校徽</td><td>官网校徽页</td></tr>
+          <tr><td>logo.png</td><td>553 × 84</td><td>中英文校名横标</td><td>官网页头</td></tr>
+          <tr><td>qr-wx.png</td><td>190 × 190</td><td>学校微信公众号二维码</td><td>官网页脚</td></tr>
+          <tr><td>news-1 … news-5</td><td>355 × 250</td><td>新闻缩略图（技能考试、招聘会、开题、宣讲、讲座）</td><td>官网新闻中心</td></tr>
+        </tbody>
+      </table>
+      <p>文字信息同样取自官网：学校概况（沿革、面积、专业、师资、基地、荣誉）、系部设置、招生就业栏目。其中专业名录官网未公开完整清单，页面里按系部方向归纳，并注明"以当年公布为准"。</p>
+    </section>
+
+    <section class="doc__sec" id="s6">
+      <h2><i>06</i>文件与交付</h2>
+      <table class="doc__tb">
+        <thead>
+          <tr><th>交付物</th><th>形式</th><th>说明</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>主件</td><td>index.html</td><td>线上展厅，可直接发链接，手机与电脑同一套代码</td></tr>
+          <tr><td>配套一</td><td>短视频分镜</td><td>60 秒竖屏 9:16，六个镜头对应六站，字幕即旁白</td></tr>
+          <tr><td>配套二</td><td>动态路线图</td><td>1080 × 1080，取本页示意图，八个点位循环点亮</td></tr>
+          <tr><td>配套三</td><td>招生海报</td><td>A3 竖版 300dpi，纸白底、朱红标题、出血 3mm</td></tr>
+          <tr><td>存档</td><td>素材 / 说明.txt</td><td>原始图片、素材清单、文件夹用途说明</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="doc__sec" id="s7">
+      <h2><i>07</i>可拓展</h2>
+      <ul>
+        <li>开放日预约接真实表单（问卷或后端），提交后回执进入招生老师的表格</li>
+        <li>八站文案与图片改为读取一份 JSON，招生办自己就能改，不用碰代码</li>
+        <li>加一段 30 秒无声循环视频替换长卷，弱网下退回图片</li>
+        <li>英文版与繁体版，服务外籍家长与港澳台招生</li>
+        <li>接入校园实景全景图（全景相机拍摄的 8K 等距柱状图），做成可拖拽的 360° 站点</li>
+      </ul>
+    </section>
+
+  </div>
+</div>
+
+<footer class="doc__ft">
+  <span>云探校 · 江苏省张家港中等专业学校 / 江苏联合职业技术学院张家港分院</span>
+  <span><a href="index.html">返回展厅</a> · 2022 级毕业设计</span>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -652,12 +652,39 @@
       </div>
     </div>
     <div class="foot__bot">
-      <p>© <span data-year>2026</span> 云探校 · 招生开放日线上展厅｜毕业设计作品 · 信息工程系</p>
-      <p>页面内容整理自学校官网公开信息，图片版权归学校所有，仅作教学与招生展示使用。</p>
+      <p>© <span data-year>2026</span> 云探校 · 招生开放日线上展厅｜毕业设计作品 · 信息工程系 计算机223 殷雨彤</p>
     </div>
   </div>
 </footer>
 
 <script src="assets/js/main.js"></script>
+<div class="askbox" id="askbox" aria-hidden="true">
+  <div class="askbox__veil" data-ask-close></div>
+  <section class="askbox__panel" role="dialog" aria-modal="true" aria-label="校园问答">
+    <header class="askbox__hd">
+      <div class="askbox__ttl">
+        <b>问校园</b>
+        <span>关于这所学校最常被问到的几件事，先在这里问</span>
+      </div>
+      <div class="askbox__acts">
+        <button class="askbox__x askbox__x--plain" type="button" id="askClear">清空</button>
+        <button class="askbox__x" type="button" data-ask-close>退出</button>
+      </div>
+    </header>
+    <div class="askbox__log" id="askLog"></div>
+    <div class="askbox__chips" id="askChips"></div>
+    <form class="askbox__form" id="askForm">
+      <input id="askInput" type="text" placeholder="比如：学校有几个食堂？" autocomplete="off" maxlength="60">
+      <button type="submit">发送</button>
+    </form>
+  </section>
+</div>
+
+<button class="ask" id="askOpen" type="button" aria-label="打开校园问答">
+  <span class="ask__seal">问</span>
+  <span class="ask__tx"><b>问校园</b><span>食堂 · 系部 · 招生</span></span>
+</button>
+
+<script src="assets/js/ask.js"></script>
 </body>
 </html>
